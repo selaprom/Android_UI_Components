@@ -92,6 +92,7 @@ import kh.com.sela.android.topbartype.screen.ScreenBottomNavigationBar
 import kh.com.sela.android.topbartype.screen.ScreenCicleProgressIndecator
 import kh.com.sela.android.topbartype.screen.ScreenDialog
 import kh.com.sela.android.topbartype.screen.ScreenMenu
+import kh.com.sela.android.topbartype.screen.ScreenNavigationDrawer
 
 
 class MainActivity : ComponentActivity() {
@@ -114,7 +115,8 @@ class MainActivity : ComponentActivity() {
                // ScreenDialog()
               // ScreenCicleProgressIndecator()
                // ScreenMenu()
-                ScreenBottomNavigationBar()
+               // ScreenBottomNavigationBar()
+                ScreenNavigationDrawer()
             }
         }
     }
