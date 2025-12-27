@@ -74,10 +74,14 @@ ModalNavigationDrawer(
         ) {
             for (text in lstext){
                 Box(
-                    modifier = Modifier.fillMaxWidth().height(56.dp),
+                    modifier = Modifier.fillMaxWidth().height(80.dp),
                     contentAlignment = Alignment.Center
                 ) {
-                    Text(text, fontSize = 20.sp, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    Column() {
+                        Text(text, fontSize = 20.sp, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                        Text(text, fontSize = 20.sp, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                        Text(text, fontSize = 20.sp, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                    }
                 }
                 HorizontalDivider()
             }
