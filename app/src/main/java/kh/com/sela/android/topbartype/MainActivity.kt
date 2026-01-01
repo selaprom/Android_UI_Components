@@ -93,12 +93,15 @@ import kh.com.sela.android.topbartype.screen.ScreenCicleProgressIndecator
 import kh.com.sela.android.topbartype.screen.ScreenDialog
 import kh.com.sela.android.topbartype.screen.ScreenMenu
 import kh.com.sela.android.topbartype.screen.ScreenNavigationDrawer
+import kh.com.sela.android.topbartype.screen.Screen_BottomBar
+import kh.com.sela.android.topbartype.screen.Screen_BottomBarWithFloating
 import kh.com.sela.android.topbartype.screen.Screen_BottomSheet
 import kh.com.sela.android.topbartype.screen.Screen_RadioButton
 import kh.com.sela.android.topbartype.screen.Screen_Slider
 import kh.com.sela.android.topbartype.screen.Screen_SnackBar
 import kh.com.sela.android.topbartype.screen.Screen_Switch
 import kh.com.sela.android.topbartype.screen.Screen_Tab
+import kh.com.sela.android.topbartype.screen.Screen_TextField
 
 
 class MainActivity : ComponentActivity() {
@@ -128,7 +131,10 @@ class MainActivity : ComponentActivity() {
                // Screen_Slider()
               //  Screen_SnackBar()
                // Screen_Switch()
-                Screen_Tab()
+               // Screen_Tab()
+               // Screen_TextField()
+                //Screen_BottomBar()
+                Screen_BottomBarWithFloating()
             }
         }
     }
