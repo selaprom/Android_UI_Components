@@ -83,6 +83,7 @@ import kh.com.sela.android.topbartype.screen.AlertDialog
 import kh.com.sela.android.topbartype.screen.ChipView
 import kh.com.sela.android.topbartype.screen.DatePickers
 import kh.com.sela.android.topbartype.screen.ElevetionCard
+import kh.com.sela.android.topbartype.screen.HomeButton
 import kh.com.sela.android.topbartype.screen.HorizontalMultiBrowseCarousels
 import kh.com.sela.android.topbartype.screen.MediumTopAppBar
 import kh.com.sela.android.topbartype.screen.NormalTopBar
@@ -102,6 +103,7 @@ import kh.com.sela.android.topbartype.screen.Screen_SnackBar
 import kh.com.sela.android.topbartype.screen.Screen_Switch
 import kh.com.sela.android.topbartype.screen.Screen_Tab
 import kh.com.sela.android.topbartype.screen.Screen_TextField
+import kh.com.sela.android.topbartype.screen.Screen_ToolTip
 
 
 class MainActivity : ComponentActivity() {
@@ -134,7 +136,9 @@ class MainActivity : ComponentActivity() {
                // Screen_Tab()
                // Screen_TextField()
                 //Screen_BottomBar()
-                Screen_BottomBarWithFloating()
+               // Screen_BottomBarWithFloating()
+                //Screen_ToolTip()
+                HomeButton()
             }
         }
     }
