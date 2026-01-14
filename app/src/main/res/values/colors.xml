@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    //new colors
+    <color name="deep_sapphire">#FF1E3A8A</color>
+    <color name="moss_green">#FF2D5A27</color>
+    <color name="coral_blush">#FFFF7F7F</color>
+    <color name="sunflower_gold">#FFFFD700</color>
+    <color name="amethyst_purple">#FF9966CC</color>
+    <color name="slate_grey">#FF708090</color>
+    <color name="turquoise_teal">#FF40E0D0</color>
+    <color name="terra_cotta">#FFE2725B</color>
+    <color name="lavender_mist">#FFE6E6FA</color>
+    <color name="midnight_blue">#FF191970</color>
 </resources>

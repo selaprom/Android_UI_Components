@@ -20,8 +20,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Add
@@ -66,73 +68,8 @@ import java.util.Locale
 fun HomeButton(){
 
 
-    val items = arrayListOf<OtherServiceItemModel>(
-        OtherServiceItemModel(
-            id = "001",
-            label = "Balance",
-            iconRes = drawable.ic_dollar,
-            iconColorRes = color.purple_200,
-            backgroundColorRes = color.purple_500,
 
-        ),
-        OtherServiceItemModel(
-            id = "002",
-            label = "Add Money",
-            iconRes = drawable.ic_wallet,
-            iconColorRes = color.purple_500,
-            backgroundColorRes = color.purple_200,
-
-            ),
-        OtherServiceItemModel(
-            id = "003",
-            label = "Send",
-            iconRes = drawable.ic_send,
-            iconColorRes = color.teal_200,
-            backgroundColorRes = color.purple_500,
-
-            ),
-        OtherServiceItemModel(
-            id = "004",
-            label = "Recieved",
-            iconRes = drawable.ic_recieve,
-            iconColorRes = color.teal_700,
-            backgroundColorRes = color.white,
-
-            ),
-        OtherServiceItemModel(
-            id = "001",
-            label = "Balance",
-            iconRes = drawable.ic_dollar,
-            iconColorRes = color.purple_200,
-            backgroundColorRes = color.purple_500,
-
-            ),
-        OtherServiceItemModel(
-            id = "002",
-            label = "Add Money",
-            iconRes = drawable.ic_wallet,
-            iconColorRes = color.purple_500,
-            backgroundColorRes = color.purple_200,
-
-            ),
-        OtherServiceItemModel(
-            id = "003",
-            label = "Send",
-            iconRes = drawable.ic_send,
-            iconColorRes = color.teal_200,
-            backgroundColorRes = color.purple_500,
-
-            ),
-        OtherServiceItemModel(
-            id = "004",
-            label = "Recieved",
-            iconRes = drawable.ic_recieve,
-            iconColorRes = color.teal_700,
-            backgroundColorRes = color.white,
-
-            )
-    )
-
+val scrollState = rememberScrollState()
 
     Scaffold(
 
@@ -142,6 +79,7 @@ fun HomeButton(){
     ){it->
         Column(
             Modifier
+                .verticalScroll(state = scrollState)
                 .padding(it)
                 .fillMaxSize()
                 .background(color = MaterialTheme.colorScheme.secondaryContainer),
@@ -150,59 +88,28 @@ fun HomeButton(){
 
         ) {
             MainCardDashBoard()
-            Box(
+            OtherServices()
+            Text(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .background(color = MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp))
                     .fillMaxWidth()
-                    .height(260.dp)
+                    .padding(horizontal = 16.dp,).padding(top = 16.dp)
+                ,
+                fontSize = 20.sp,
+               text =  "Transection",
+                fontWeight = FontWeight.Bold,
 
-            ) {
-                Column(
+            )
+            for (i in 1..10){
+                Box(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp)
-                    ) {
-                    Text("Other Service", modifier = Modifier
-                        .fillMaxWidth(),
-                        fontSize = 20.sp
-
-
-                    )
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(4),
-                        contentPadding = PaddingValues(16.dp),
-                        userScrollEnabled = false,
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-
-                    ) {
-                        items(items){i->
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Box(
-                                    modifier = Modifier
-                                        .background(shape = RoundedCornerShape(size = 16.dp), color = colorResource(i.backgroundColorRes))
-                                        .size(56.dp)
-
-                                    ,
-                                    contentAlignment = Alignment.Center
-                                ){
-                                    IconButton(onClick = {
-                                        println("======>this is $i")
-                                    }) {
-                                        Icon(painter = painterResource(i.iconRes),contentDescription = null, modifier = Modifier.size(30.dp), tint = colorResource(i.iconColorRes))
-                                    }
-                                }
-                                Spacer(modifier = Modifier.height(8.dp))
-                                Text(i.label, color = MaterialTheme.colorScheme.primary, fontSize = 15.sp)
-
-
-                            }
-                        }
-                    }
-                }
+                        .padding(horizontal = 16.dp)
+                        .padding(top = 16.dp)
+                        .fillMaxWidth()
+                        .height(86.dp)
+                        .background(color = MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp))
+                ){}
             }
+
 
         }
     }
@@ -316,6 +223,129 @@ fun MainCardDashBoard(){
                         }
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(i.label, color = Color.White, fontSize = 15.sp)
+
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun OtherServices(){
+    val items = arrayListOf<OtherServiceItemModel>(
+        OtherServiceItemModel(
+            id = "001",
+            label = "Balance",
+            iconRes = drawable.ic_dollar,
+            iconColorRes = color.purple_200,
+            backgroundColorRes = color.purple_500,
+
+            ),
+        OtherServiceItemModel(
+            id = "002",
+            label = "Add Money",
+            iconRes = drawable.ic_wallet,
+            iconColorRes = color.purple_500,
+            backgroundColorRes = color.purple_200,
+
+            ),
+        OtherServiceItemModel(
+            id = "003",
+            label = "Send",
+            iconRes = drawable.ic_send,
+            iconColorRes = color.teal_200,
+            backgroundColorRes = color.purple_500,
+
+            ),
+        OtherServiceItemModel(
+            id = "004",
+            label = "Recieved",
+            iconRes = drawable.ic_recieve,
+            iconColorRes = color.teal_700,
+            backgroundColorRes = color.white,
+
+            ),
+        OtherServiceItemModel(
+            id = "001",
+            label = "Balance",
+            iconRes = drawable.ic_dollar,
+            iconColorRes = color.purple_200,
+            backgroundColorRes = color.purple_500,
+
+            ),
+        OtherServiceItemModel(
+            id = "002",
+            label = "Add Money",
+            iconRes = drawable.ic_wallet,
+            iconColorRes = color.purple_500,
+            backgroundColorRes = color.purple_200,
+
+            ),
+        OtherServiceItemModel(
+            id = "003",
+            label = "Send",
+            iconRes = drawable.ic_send,
+            iconColorRes = color.teal_200,
+            backgroundColorRes = color.purple_500,
+
+            ),
+        OtherServiceItemModel(
+            id = "004",
+            label = "Recieved",
+            iconRes = drawable.ic_recieve,
+            iconColorRes = color.teal_700,
+            backgroundColorRes = color.white,
+
+            )
+    )
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+            .background(color = MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp))
+            .fillMaxWidth()
+            .height(260.dp)
+
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Text("Other Service", modifier = Modifier
+                .fillMaxWidth(),
+                fontSize = 20.sp
+
+
+            )
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(4),
+                contentPadding = PaddingValues(16.dp),
+                userScrollEnabled = false,
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+
+            ) {
+                items(items){i->
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .background(shape = RoundedCornerShape(size = 16.dp), color = colorResource(i.backgroundColorRes))
+                                .size(56.dp)
+
+                            ,
+                            contentAlignment = Alignment.Center
+                        ){
+                            IconButton(onClick = {
+                                println("======>this is $i")
+                            }) {
+                                Icon(painter = painterResource(i.iconRes),contentDescription = null, modifier = Modifier.size(30.dp), tint = colorResource(i.iconColorRes))
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(i.label, color = MaterialTheme.colorScheme.primary, fontSize = 15.sp)
 
 
                     }
