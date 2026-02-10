@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -29,18 +30,27 @@ import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -56,6 +66,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.R
 import kh.com.sela.android.topbartype.R.*
 import kh.com.sela.android.topbartype.model.DashboardModel
+import kh.com.sela.android.topbartype.model.NavigationBarItem
 import kh.com.sela.android.topbartype.model.OtherServiceItemModel
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -67,15 +78,75 @@ import java.util.Locale
 @Composable
 fun HomeButton(){
 
-
+var isChangState by remember { mutableIntStateOf(0) }
 
 val scrollState = rememberScrollState()
+    val lsItem= listOf(NavigationBarItem(label = "Home", icon = kh.com.sela.android.topbartype.R.drawable.ic_home ),
+        NavigationBarItem(label = "Video", icon = kh.com.sela.android.topbartype.R.drawable.ic_qr ,),
+        NavigationBarItem(label = "Profile", icon = kh.com.sela.android.topbartype.R.drawable.ic_profile ,)
+    )
 
     Scaffold(
 
         topBar = {
             TopAppBar()
         },
+        bottomBar = {
+            BottomAppBar(
+                containerColor = MaterialTheme.colorScheme.surface,
+                windowInsets = BottomAppBarDefaults.windowInsets
+            ) {
+
+                lsItem.forEachIndexed { index, item ->
+                    NavigationBarItem(
+
+                        selected = isChangState == index,
+                        onClick = {
+                            isChangState = index
+
+                        },
+                        colors = NavigationBarItemDefaults.colors(
+                            selectedIconColor = Color.Green,
+                            selectedTextColor = Color.Blue,
+                            indicatorColor = Color.Blue,
+                            unselectedIconColor = Color.Black,
+                            unselectedTextColor = Color.Black
+                        ),
+
+                        icon = {
+                            if (index==1){
+                                IconButton(
+modifier =                          Modifier.size(60.dp),
+                                    onClick = {
+                                    isChangState = index
+                                },
+                                    colors = IconButtonDefaults.iconButtonColors(
+                                        containerColor = colorResource(color.teal_700),
+
+                                    )
+                                    ) {
+                                    Icon(
+                                        modifier = Modifier.size(40.dp),
+                                        tint = Color.White,
+                                        painter = painterResource(drawable.ic_qr,),
+                                        contentDescription = ""
+                                    )
+                                }
+                            }else{
+                                Icon(
+                                    painter = painterResource(id = item.icon),
+                                    contentDescription = ""
+                                )
+                            }
+
+                        },
+                        label = { Text(item.label) }
+
+                    )
+                }
+
+            }
+        }
     ){it->
         Column(
             Modifier
@@ -107,7 +178,49 @@ val scrollState = rememberScrollState()
                         .fillMaxWidth()
                         .height(86.dp)
                         .background(color = MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(16.dp))
-                ){}
+                ){
+                    Row(modifier = Modifier.padding(10.dp)) {
+                        Box(
+                            modifier = Modifier
+                                .background(shape = CircleShape, color = MaterialTheme.colorScheme.primaryContainer)
+                                .size(64.dp)
+
+                            ,
+                            contentAlignment = Alignment.Center
+                        ){
+                            IconButton(onClick = {
+                                println("======>this is $i")
+                            }) {
+                                Icon(painter = painterResource(drawable.ic_profile),contentDescription = null, modifier = Modifier.size(30.dp))
+                            }
+                        }
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Column(modifier = Modifier
+                            .padding(6.dp)
+                            .weight(1f)
+                            .fillMaxHeight(),
+                            verticalArrangement = Arrangement.SpaceBetween
+
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text("Alex Macculan", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                                Text("-\$66.02", color = colorResource(color.deep_sapphire), fontSize = 18.sp)
+                            }
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text("Send Money", color = colorResource(color.purple_200))
+                                Text("25-02-2026 6:00pm")
+                            }
+                        }
+
+
+                    }
+                }
             }
 
 
