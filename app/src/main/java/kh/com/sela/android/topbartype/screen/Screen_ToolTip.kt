@@ -75,7 +75,9 @@ import androidx.compose.ui.unit.sp
 import kh.com.sela.android.topbartype.R
 import kotlinx.coroutines.launch
 
+
 @OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun Screen_ToolTip(){
 val tooltipState = rememberTooltipState()
@@ -138,7 +140,7 @@ val tooltipState = rememberTooltipState()
                         Text("Additional Information")
                     },
                         tonalElevation = 16.dp,
-                        caretSize = DpSize(width = 20.dp, height = 56.dp),
+                       // caretSize = DpSize(width = 20.dp, height = 56.dp),
                         colors = RichTooltipColors(
                             containerColor = colorResource(R.color.purple_200),
                             contentColor = colorResource(R.color.purple_500),
