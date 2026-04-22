@@ -7,12 +7,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class  HomeVM: ViewModel() {
-    private  var _message : MutableStateFlow<String> = MutableStateFlow("")
+class  HomeVM(private val  homeRipository: HomeRipository= HomeRipository()): ViewModel() {
+    private  var _message : MutableStateFlow<List<String>> = MutableStateFlow(emptyList())
     var message = _message.asStateFlow()
     fun getMessage(){
         viewModelScope.launch {
-            _message.emit("this is my message.")
+            _message.emit(homeRipository.getMessage())
         }
     }
 }
