@@ -94,7 +94,8 @@ val scrollState = rememberScrollState()
         bottomBar = {
             BottomAppBar(
                 containerColor = MaterialTheme.colorScheme.surface,
-                windowInsets = BottomAppBarDefaults.windowInsets
+                windowInsets = BottomAppBarDefaults.windowInsets,
+
             ) {
 
                 lsItem.forEachIndexed { index, item ->
@@ -115,23 +116,12 @@ val scrollState = rememberScrollState()
 
                         icon = {
                             if (index==1){
-                                IconButton(
-modifier =                          Modifier.size(60.dp),
-                                    onClick = {
-                                    isChangState = index
-                                },
-                                    colors = IconButtonDefaults.iconButtonColors(
-                                        containerColor = colorResource(color.teal_700),
-
-                                    )
-                                    ) {
-                                    Icon(
-                                        modifier = Modifier.size(40.dp),
-                                        tint = Color.White,
-                                        painter = painterResource(drawable.ic_qr,),
-                                        contentDescription = ""
-                                    )
-                                }
+                                Icon(
+                                    modifier = Modifier.size(40.dp),
+                                    //tint = Color.White,
+                                    painter = painterResource(drawable.ic_qr,),
+                                    contentDescription = ""
+                                )
                             }else{
                                 Icon(
                                     painter = painterResource(id = item.icon),
