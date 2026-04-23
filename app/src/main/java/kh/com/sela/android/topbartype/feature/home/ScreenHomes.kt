@@ -26,7 +26,7 @@ import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenHome(){
+fun ScreenHomes(){
     var homeVM = HomeVM()
     val message by homeVM.message.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
@@ -75,6 +75,6 @@ fun ScreenHome(){
 @Preview(showBackground = true)
 fun ScreenHomePreview(){
     TopBarTypeTheme() {
-        ScreenHome()
+        ScreenHomes()
     }
 }

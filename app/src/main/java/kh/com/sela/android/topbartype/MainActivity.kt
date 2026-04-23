@@ -79,7 +79,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import kh.com.sela.android.topbartype.R
-import kh.com.sela.android.topbartype.feature.home.ScreenHome
+
+import kh.com.sela.android.topbartype.feature.home.ScreenHomes
+import kh.com.sela.android.topbartype.navigation.AppNavigation
 import kh.com.sela.android.topbartype.screen.AlertDialog
 import kh.com.sela.android.topbartype.screen.ChipView
 import kh.com.sela.android.topbartype.screen.DatePickers
@@ -140,7 +142,8 @@ class MainActivity : ComponentActivity() {
                // Screen_BottomBarWithFloating()
                 //Screen_ToolTip()
                //main screen HomeButton()
-                ScreenHome()
+                //ScreenHomes()
+                AppNavigation()
             }
         }
     }
