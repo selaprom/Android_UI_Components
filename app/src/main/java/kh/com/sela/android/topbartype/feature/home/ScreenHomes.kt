@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -19,24 +21,41 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kh.com.sela.android.topbartype.R
+import kh.com.sela.android.topbartype.Util.LoadingUtil
+import kh.com.sela.android.topbartype.model.base.BaseUiState
 import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenHomes(){
-    var homeVM = HomeVM()
-    val message by homeVM.message.collectAsStateWithLifecycle()
-    LaunchedEffect(Unit) {
-        homeVM.getMessage()
+fun ScreenHomes( homeVM : HomeVM= HomeVM(),onClickNotification:()-> Unit={}){
+
+    val messageUiState by homeVM.messageUiState.collectAsStateWithLifecycle()
+    LaunchedEffect(key1 = messageUiState) {
+        when(val state=messageUiState){
+            is BaseUiState.Loading->{
+                LoadingUtil.showLoading()
+            }
+            is BaseUiState.Error ->{
+                LoadingUtil.hideLoading()
+                println("Error: ${state.message}")
+            }
+            is BaseUiState.Success ->{
+                LoadingUtil.hideLoading()
+            }
+            else -> {}
+        }
     }
     Scaffold(
             modifier = Modifier.navigationBarsPadding(),
         bottomBar = {
 
     },
+
 
         topBar = {
 
@@ -46,35 +65,46 @@ fun ScreenHomes(){
                 ),
                 title = {
                     Text("MyApp")
+                }, actions = {
+                    IconButton(onClick = onClickNotification) {
+                        Icon(painter = painterResource(R.drawable.ic_notification),contentDescription = null)
+                    }
                 }
             )
         }
     ) {paddingValues ->
-        LazyColumn(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(paddingValues).fillMaxWidth()
-        ) {
-            items(message.size){
-                Row(
-                    modifier = Modifier.height(56.dp).fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
+
+        when(val state= messageUiState){
+            is BaseUiState.Success ->{
+                LazyColumn(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier.padding(paddingValues).fillMaxWidth()
                 ) {
-                    Text(
+                    items(state.data.size){
+                        Row(
+                            modifier = Modifier.height(56.dp).fillMaxWidth(),
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
 
-                         text =   message[it])
+                                text =   state.data[it])
+                        }
+                        HorizontalDivider()
+
+                    }
                 }
-                HorizontalDivider()
-
             }
+
+            else -> {}
         }
     }
 }
 @Composable
 @Preview(showBackground = true)
 fun ScreenHomePreview(){
-    TopBarTypeTheme() {
+    TopBarTypeTheme {
         ScreenHomes()
     }
 }
