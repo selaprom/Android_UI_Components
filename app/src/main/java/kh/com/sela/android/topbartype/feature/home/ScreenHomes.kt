@@ -1,5 +1,6 @@
 package kh.com.sela.android.topbartype.feature.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,7 +33,7 @@ import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenHomes( homeVM : HomeVM= HomeVM(),onClickNotification:()-> Unit={}){
+fun ScreenHomes( homeVM : HomeVM= HomeVM(),onClickNotification:()-> Unit={},onClickCard:()-> Unit={}){
 
     val messageUiState by homeVM.messageUiState.collectAsStateWithLifecycle()
     LaunchedEffect(key1 = messageUiState) {
@@ -81,6 +82,18 @@ fun ScreenHomes( homeVM : HomeVM= HomeVM(),onClickNotification:()-> Unit={}){
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier.padding(paddingValues).fillMaxWidth()
                 ) {
+                    item {
+                        Row(
+                            modifier = Modifier
+                                .height(56.dp)
+                                .fillMaxWidth()
+                                .clickable(onClick = onClickCard),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text("CareView")
+                        }
+                        HorizontalDivider()
+                    }
                     items(state.data.size){
                         Row(
                             modifier = Modifier.height(56.dp).fillMaxWidth(),

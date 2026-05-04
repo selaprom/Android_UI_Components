@@ -2,6 +2,9 @@ package kh.com.sela.android.topbartype.feature.home.notification
 
 import kh.com.sela.android.topbartype.model.NotificationResponse
 import kh.com.sela.android.topbartype.model.NotificationType
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class NotificaitonRepository {
     val notificationList = listOf(
@@ -35,5 +38,19 @@ class NotificaitonRepository {
     )
     fun getNotification(): List<NotificationResponse>{
         return notificationList
+    }
+
+    suspend fun getNotificationDetail(id: String): Flow<NotificationResponse?>{
+        delay(1000)
+        return flow {
+
+            val notification = notificationList.filter { it.notificationId==id }
+            if (notification.isNotEmpty()){
+                emit(notification[0])
+            }
+            else{
+                emit(null)
+            }
+        }
     }
 }

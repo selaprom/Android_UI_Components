@@ -1,6 +1,7 @@
 package kh.com.sela.android.topbartype.feature.home.notification
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -55,7 +56,7 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenNotification(
-    notificationVM: NotificationVM= NotificationVM(),onBackScreen:()-> Unit={}
+    notificationVM: NotificationVM= NotificationVM(),onBackScreen:()-> Unit={},onClickItem:(id:String)-> Unit={}
 ){
      val notificationList by notificationVM.notificationList.collectAsStateWithLifecycle()
     LaunchedEffect( Unit) {
@@ -84,7 +85,9 @@ fun ScreenNotification(
             modifier = Modifier.padding(paddingValues)
         ) {
             items(notificationList) { notification ->
-                NotificationCard(notification)
+                NotificationCard(notification){
+                    onClickItem(notification.notificationId)
+                }
             }
         }
     }
@@ -94,7 +97,7 @@ fun formatTime(timestamp: Long): String {
     return sdf.format(Date(timestamp))
 }
 @Composable
-fun NotificationCard(notification: NotificationResponse) {
+fun NotificationCard(notification: NotificationResponse,onClick:()-> Unit) {
 
     val backgroundColor = if (notification.isRead) Color.White else Color(0xFFE8F0FE)
 
@@ -107,6 +110,9 @@ fun NotificationCard(notification: NotificationResponse) {
 
     Card(
         modifier = Modifier
+            .clickable{
+                onClick()
+            }
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 6.dp),
         colors = CardDefaults.cardColors(containerColor = backgroundColor),
