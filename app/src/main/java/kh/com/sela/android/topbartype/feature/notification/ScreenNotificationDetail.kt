@@ -33,8 +33,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
-import kh.com.sela.android.topbartype.feature.home.notification.NotificationVM
-import kh.com.sela.android.topbartype.feature.home.notification.formatTime
+import kh.com.sela.android.topbartype.feature.notification.NotificationVM
 import kh.com.sela.android.topbartype.model.base.BaseUiState
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -168,8 +167,4 @@ fun ScreenNotificationDetail(
         }
         else -> {}
     }
-}
-fun formatTime(timestamp: Long): String {
-    val sdf = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
-    return sdf.format(Date(timestamp))
 }

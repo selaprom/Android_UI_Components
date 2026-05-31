@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.feature.home.notification
+package kh.com.sela.android.topbartype.feature.notification
 
 import kh.com.sela.android.topbartype.model.NotificationResponse
 import kh.com.sela.android.topbartype.model.NotificationType

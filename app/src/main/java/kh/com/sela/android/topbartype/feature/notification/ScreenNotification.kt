@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.feature.home.notification
+package kh.com.sela.android.topbartype.feature.notification
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

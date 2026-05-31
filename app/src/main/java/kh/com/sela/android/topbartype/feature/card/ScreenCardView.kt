@@ -33,7 +33,7 @@ import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
 import kh.com.sela.android.topbartype.model.CardModel
 import kh.com.sela.android.topbartype.model.base.BaseUiState
-import kh.com.sela.android.topbartype.screen.CenterTopAppBar
+import kh.com.sela.android.topbartype.feature.appbar.CenterTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

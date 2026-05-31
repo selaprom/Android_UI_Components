@@ -26,6 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
 import kh.com.sela.android.topbartype.model.base.BaseUiState
@@ -33,33 +34,32 @@ import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenHomes( homeVM : HomeVM= HomeVM(),onClickNotification:()-> Unit={},onClickCard:()-> Unit={}){
+fun ScreenHomes(
+    homeVM: HomeVM = viewModel() ,
+    onClickNotification: () -> Unit = {},
+    onClickCard: () -> Unit = {},
+    onClickComponent: (Any) -> Unit = {}
+) {
 
     val messageUiState by homeVM.messageUiState.collectAsStateWithLifecycle()
-    LaunchedEffect(key1 = messageUiState) {
-        when(val state=messageUiState){
-            is BaseUiState.Loading->{
-                LoadingUtil.showLoading()
-            }
-            is BaseUiState.Error ->{
-                LoadingUtil.hideLoading()
-                println("Error: ${state.message}")
-            }
-            is BaseUiState.Success ->{
-                LoadingUtil.hideLoading()
-            }
-            else -> {}
+    val componentListUiState by homeVM.componentList.collectAsStateWithLifecycle()
+
+    LaunchedEffect(key1 = Unit) {
+
+        homeVM.getComponentList()
+    }
+
+    LaunchedEffect(key1 = messageUiState, key2 = componentListUiState) {
+        if (messageUiState is BaseUiState.Loading || componentListUiState is BaseUiState.Loading) {
+            LoadingUtil.showLoading()
+        } else {
+            LoadingUtil.hideLoading()
         }
     }
+
     Scaffold(
-            modifier = Modifier.navigationBarsPadding(),
-        bottomBar = {
-
-    },
-
-
+        modifier = Modifier.navigationBarsPadding(),
         topBar = {
-
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
@@ -68,50 +68,54 @@ fun ScreenHomes( homeVM : HomeVM= HomeVM(),onClickNotification:()-> Unit={},onCl
                     Text("MyApp")
                 }, actions = {
                     IconButton(onClick = onClickNotification) {
-                        Icon(painter = painterResource(R.drawable.ic_notification),contentDescription = null)
+                        Icon(
+                            painter = painterResource(R.drawable.ic_notification),
+                            contentDescription = null
+                        )
                     }
                 }
             )
         }
-    ) {paddingValues ->
-
-        when(val state= messageUiState){
-            is BaseUiState.Success ->{
-                LazyColumn(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.padding(paddingValues).fillMaxWidth()
+    ) { paddingValues ->
+        LazyColumn(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxWidth()
+        ) {
+            item {
+                Row(
+                    modifier = Modifier
+                        .height(56.dp)
+                        .fillMaxWidth()
+                        .clickable(onClick = onClickCard)
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    item {
-                        Row(
-                            modifier = Modifier
-                                .height(56.dp)
-                                .fillMaxWidth()
-                                .clickable(onClick = onClickCard),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text("CareView")
-                        }
-                        HorizontalDivider()
-                    }
-                    items(state.data.size){
-                        Row(
-                            modifier = Modifier.height(56.dp).fillMaxWidth(),
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-
-                                text =   state.data[it])
-                        }
-                        HorizontalDivider()
-
-                    }
+                    Text("CardView")
                 }
+                HorizontalDivider()
             }
 
-            else -> {}
+            if (componentListUiState is BaseUiState.Success) {
+                val components = (componentListUiState as BaseUiState.Success).data
+                items(components.size) { index ->
+                    val component = components[index]
+                    Row(
+                        modifier = Modifier
+                            .height(56.dp)
+                            .fillMaxWidth()
+                            .clickable { onClickComponent(component.key) }
+                            .padding(horizontal = 16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(text = component.title)
+                    }
+                    HorizontalDivider()
+                }
+            }
         }
+
     }
 }
 @Composable
