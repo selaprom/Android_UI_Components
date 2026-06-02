@@ -1,5 +1,7 @@
 package kh.com.sela.android.topbartype.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -23,6 +25,7 @@ import kh.com.sela.android.topbartype.feature.menu.ScreenMenu
 import kh.com.sela.android.topbartype.feature.navigationbar.ScreenBottomNavigationBar
 import kh.com.sela.android.topbartype.feature.notification.ScreenNotification
 import kh.com.sela.android.topbartype.feature.notification.ScreenNotificationDetail
+import kh.com.sela.android.topbartype.feature.postnotification.ScreenPostNotification
 import kh.com.sela.android.topbartype.feature.progressindicator.ScreenCicleProgressIndecator
 import kh.com.sela.android.topbartype.feature.radiobutton.Screen_RadioButton
 import kh.com.sela.android.topbartype.feature.slider.Screen_Slider
@@ -34,36 +37,8 @@ import kh.com.sela.android.topbartype.feature.tooltip.Screen_ToolTip
 import kh.com.sela.android.topbartype.feature.userapi.ScreenUserApi
 import kotlinx.serialization.Serializable
 
-//Define key that will identify content
-data object Homes
-data object Notification
-data object Card
-data object Tab
-data object NavigationBar
-data object BottomBarWithFloating
-data object BottomSheet
-data object ToolTip
-data object NavigationDrawer
-data object TextField
-data object BottomBar
-data object Dialog
-data object SnackBar
-data object ProgressIndicator
-data object RadioButton
-data object Slider
-data object Switch
-data object Menu
-data object Chip
-data object Button
-data object DatePicker
-data object Carousel
-data object CheckBox
-data object TopAppBar
-data object UserApi
 
-@Serializable
-data class NotificationDetail(val id: String)
-
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun AppNavigation() {
 
@@ -184,6 +159,11 @@ fun AppNavigation() {
                 }
                 is UserApi -> NavEntry(key) {
                     ScreenUserApi ()
+                }
+                is PostNotification -> NavEntry(key) {
+                    ScreenPostNotification (){
+                        backStack.removeLastOrNull()
+                    }
                 }
 
                 else -> NavEntry(Unit) { Text("Unknown route") }

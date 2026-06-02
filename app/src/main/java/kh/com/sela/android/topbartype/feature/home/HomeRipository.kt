@@ -29,6 +29,7 @@ class HomeRipository {
         ComponentModel(20, "TextFields", "Input fields", "ic_textfield", TextField),
         ComponentModel(21, "Carousel", "Horizontal image carousel", "ic_carousel", Carousel),
         ComponentModel(22, "UsersApi", "Horizontal image carousel", "ic_carousel", UserApi),
+        ComponentModel(23, "PostNotification", "Post Notification", "ic_carousel", PostNotification),
         )
 
 
