@@ -91,7 +91,7 @@ fun ScreenNotificationDetail(
                 }
             ) { paddingValues ->
 
-                when (state) {
+                when (val state = notificationDetailUiState) {
                     is BaseUiState.Loading -> {
                         Box(
                             modifier = Modifier
@@ -162,6 +162,7 @@ fun ScreenNotificationDetail(
                             )
                         }
                     }
+                    else -> {}
                 }
             }
         }
