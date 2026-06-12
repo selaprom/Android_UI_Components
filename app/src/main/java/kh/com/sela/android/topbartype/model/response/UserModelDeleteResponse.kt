@@ -1,6 +1,12 @@
 package kh.com.sela.android.topbartype.model.response
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class UserModelDeleteResponse (
+    @SerialName("message")
     val message: String,
-    val data: UserModelResponse
+    @SerialName("updated_rows")
+    val updatedRows: Int? = null
 )

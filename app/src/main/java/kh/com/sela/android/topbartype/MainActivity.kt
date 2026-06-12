@@ -2,10 +2,12 @@ package kh.com.sela.android.topbartype
 
 //import android.R
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -110,8 +112,11 @@ import kh.com.sela.android.topbartype.feature.tab.Screen_Tab
 import kh.com.sela.android.topbartype.feature.textfield.Screen_TextField
 import kh.com.sela.android.topbartype.feature.tooltip.Screen_ToolTip
 
-
+/**
+ * setup DI for android project
+ */
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

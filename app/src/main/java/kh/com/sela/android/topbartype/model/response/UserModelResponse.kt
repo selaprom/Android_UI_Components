@@ -1,7 +1,15 @@
 package kh.com.sela.android.topbartype.model.response
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class UserModelResponse(
-    val id: String,
+    @SerialName(value = "id")
+    val id: Int,
+    @SerialName(value = "fullname")
     val fullname: String,
+    @SerialName(value = "email")
     val email: String
-)
+
+    )

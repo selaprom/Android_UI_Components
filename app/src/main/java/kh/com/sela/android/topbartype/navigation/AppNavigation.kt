@@ -13,6 +13,7 @@ import kh.com.sela.android.topbartype.feature.appbar.Screen_BottomBarWithFloatin
 import kh.com.sela.android.topbartype.feature.appbar.Screen_TopAppBar
 import kh.com.sela.android.topbartype.feature.bottomsheet.Screen_BottomSheet
 import kh.com.sela.android.topbartype.feature.button.HomeButton
+import kh.com.sela.android.topbartype.feature.camera.ScreenCameraLauncher
 import kh.com.sela.android.topbartype.feature.card.ScreenCardView
 import kh.com.sela.android.topbartype.feature.carousel.HorizontalMultiBrowseCarousels
 import kh.com.sela.android.topbartype.feature.checkbox.PreViewCheckBox
@@ -21,6 +22,11 @@ import kh.com.sela.android.topbartype.feature.datepicker.DatePickers
 import kh.com.sela.android.topbartype.feature.dialog.ScreenDialog
 import kh.com.sela.android.topbartype.feature.drawer.ScreenNavigationDrawer
 import kh.com.sela.android.topbartype.feature.home.ScreenHomes
+import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedMultiplePhotos
+import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedMultipleVideos
+import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedSinglePhoto
+import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedSingleVideo
+import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedVideosAndPhotos
 import kh.com.sela.android.topbartype.feature.menu.ScreenMenu
 import kh.com.sela.android.topbartype.feature.navigationbar.ScreenBottomNavigationBar
 import kh.com.sela.android.topbartype.feature.notification.ScreenNotification
@@ -162,6 +168,36 @@ fun AppNavigation() {
                 }
                 is PostNotification -> NavEntry(key) {
                     ScreenPostNotification (){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is SelectedSinglePhoto -> NavEntry(key) {
+                    ScreenSelectedSinglePhoto (){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is SelectedMultiplePhotos -> NavEntry(key) {
+                    ScreenSelectedMultiplePhotos (){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is SelectedSingleVideo -> NavEntry(key) {
+                    ScreenSelectedSingleVideo (){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is SelectedMultipleVideos -> NavEntry(key) {
+                    ScreenSelectedMultipleVideos (){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is SelectedVideosAndPhotos -> NavEntry(key) {
+                    ScreenSelectedVideosAndPhotos(){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is CameraLauncher -> NavEntry(key) {
+                    ScreenCameraLauncher (){
                         backStack.removeLastOrNull()
                     }
                 }

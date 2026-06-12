@@ -37,7 +37,7 @@ class HomeVM(private val homeRipository: HomeRipository = HomeRipository()) : Vi
     fun getComponentList() {
         viewModelScope.launch {
             _componentList.emit(BaseUiState.Loading)
-            delay(timeMillis = 1000)
+            delay(timeMillis = 500)
             homeRipository.getMessage().collect {result->
                 _componentList.emit(Success(data = result))
             }

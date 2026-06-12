@@ -30,6 +30,12 @@ class HomeRipository {
         ComponentModel(21, "Carousel", "Horizontal image carousel", "ic_carousel", Carousel),
         ComponentModel(22, "UsersApi", "Horizontal image carousel", "ic_carousel", UserApi),
         ComponentModel(23, "PostNotification", "Post Notification", "ic_carousel", PostNotification),
+        ComponentModel(24, "SelectedSinglePhoto", "Selected Single Photo", "ic_carousel", SelectedSinglePhoto),
+        ComponentModel(25, "SelectedMultiplePhotos", "Selected Multiple Photos", "ic_carousel", SelectedMultiplePhotos),
+        ComponentModel(26, "SelectedSingleVideo", "Selected Single Video", "ic_carousel", SelectedSingleVideo),
+        ComponentModel(27, "SelectedMultipleVideos", "Selected Multiple Videos", "ic_carousel", SelectedMultipleVideos),
+        ComponentModel(28, "SelectedVideosAndPhotos", "Selected Videos And Photos", "ic_carousel", SelectedVideosAndPhotos),
+        ComponentModel(29, "CameraLauncher", "Camera Launcher", "ic_carousel", CameraLauncher),
         )
 
 

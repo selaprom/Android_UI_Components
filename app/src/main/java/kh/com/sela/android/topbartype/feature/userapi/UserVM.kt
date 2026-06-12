@@ -17,6 +17,7 @@ class UserVM : ViewModel(){
     private val _usersUiState = MutableStateFlow<BaseUiState<List<UserModelResponse>>>(BaseUiState.None)
     private val _userUiState = MutableStateFlow<BaseUiState<UserModelResponse>>(BaseUiState.None)
 
+
     private val _userUpdateUiState = MutableStateFlow<BaseUiState<UserUpdateResponse>>(BaseUiState.None)
     private val _userDeleteUiState = MutableStateFlow<BaseUiState<UserModelDeleteResponse>>(BaseUiState.None)
     val usersUiState = _usersUiState.asStateFlow()
@@ -31,7 +32,7 @@ class UserVM : ViewModel(){
                 _userUiState.value = BaseUiState.Loading
                 val response = RetrofitClient.apiService.createUser(body)
                 _userUiState.value = BaseUiState.Success(response)
-                println("response $response")
+                println("this response=====> $response")
 
             }catch (e: Exception){
                 println("error====> $e")
@@ -55,18 +56,7 @@ class UserVM : ViewModel(){
         }
     }
 
-//    fun updateUserList(user: UserModelResponse){
-//        _usersUiState.value = BaseUiState.Loading
-//       when(val state= usersUiState.value){
-//           is BaseUiState.Success ->{
-//               val users = state.data.toMutableList()
-//               users.add(user)
-//               _usersUiState.value = BaseUiState.Success(users)
-//           }
-//
-//           else -> {}
-//       }
-//    }
+
 
     fun onDispose(){
         _usersUiState.value = BaseUiState.None
@@ -77,7 +67,7 @@ class UserVM : ViewModel(){
         fun deleteUser(id: Int) {
             viewModelScope.launch {
                 try {
-                   // _userDeleteUiState.value = BaseUiState.Loading
+                    _userDeleteUiState.value = BaseUiState.Loading
                     val response = RetrofitClient.apiService.deleteUser(id.toString())
                     _userDeleteUiState.value = BaseUiState.Success(response)
                     println("response $response")
@@ -92,7 +82,7 @@ class UserVM : ViewModel(){
     fun updateUser(id: String, body: UserUpdateRequest){
         viewModelScope.launch {
             try {
-               // _userUiState.value = BaseUiState.Loading
+                _userUiState.value = BaseUiState.Loading
                 val response = RetrofitClient.apiService.updateUser(id, body)
                 if (response.isSuccessful){
                     _userUpdateUiState.value = BaseUiState.Success(response.body()!!)
@@ -101,8 +91,7 @@ class UserVM : ViewModel(){
                 }
 
         }catch (e: Exception){
-                println("error====> $e")
-
+                _userUpdateUiState.value = BaseUiState.Error(500, e.message.toString())
             }
         }
     }

@@ -1,3 +1,11 @@
 package kh.com.sela.android.topbartype.model.request
 
-data class UserUpdateRequest(val fullname: String, val email: String)
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class UserUpdateRequest(
+    @SerialName(value = "fullname")
+    val fullname: String,
+    @SerialName(value = "email")
+    val email: String)

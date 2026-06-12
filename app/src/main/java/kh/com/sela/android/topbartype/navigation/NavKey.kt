@@ -30,6 +30,14 @@ data object TopAppBar
 data object UserApi
 
 data object PostNotification
+data object SelectedSinglePhoto
+data object SelectedMultiplePhotos
+
+data object SelectedSingleVideo
+data object SelectedMultipleVideos
+data object SelectedVideosAndPhotos
+
+data object CameraLauncher
 
 @Serializable
 data class NotificationDetail(val id: String)

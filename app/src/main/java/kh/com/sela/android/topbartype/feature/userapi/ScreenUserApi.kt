@@ -293,11 +293,11 @@ fun ScreenUserApi(
                                 user = user,
                                 onClickDelete = { id ->
                                     isShowDialog = true
-                                    userId = user.id.toInt()
+                                    userId = user.id
                                 },
                                 onClickItem = {
                                     isShowModleButtomSheet = true
-                                    userId = user.id.toInt()
+                                    userId = user.id
                                     name = user.fullname
                                     email = user.email
                                     isEdit = true
@@ -484,7 +484,7 @@ fun UserApiItem(
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(user.id, fontSize = 20.sp)
+            Text(user.id.toString(), fontSize = 20.sp)
 
             Spacer(modifier = Modifier.width(8.dp))
             Divider(
@@ -501,7 +501,7 @@ fun UserApiItem(
             }
             Spacer(modifier = Modifier.weight(1f))
             IconButton(onClick = {
-
+                onClickDelete(user.id)
 
             }) {
                 Icon(
