@@ -29,6 +29,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -487,6 +488,7 @@ fun UserApiItem(
             Text(user.id.toString(), fontSize = 20.sp)
 
             Spacer(modifier = Modifier.width(8.dp))
+
             Divider(
                 color = Color.Gray,
                 modifier = Modifier

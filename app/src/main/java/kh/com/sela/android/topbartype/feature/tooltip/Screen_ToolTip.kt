@@ -123,8 +123,9 @@ val tooltipState = rememberTooltipState()
         ) {
 
             TooltipBox(
-                positionProvider = TooltipDefaults.rememberRichTooltipPositionProvider(),
+                positionProvider = TooltipDefaults.rememberTooltipPositionProvider(),
                 tooltip = {
+
 
                     RichTooltip(
                         action = {

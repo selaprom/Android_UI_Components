@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import androidx.annotation.RequiresApi
-import com.google.ai.edge.litert.Environment
 import okio.IOException
 import java.io.File
 import java.io.FileOutputStream
