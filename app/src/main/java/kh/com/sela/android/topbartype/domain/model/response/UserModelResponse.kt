@@ -1,11 +1,15 @@
-package kh.com.sela.android.topbartype.model.request
+package kh.com.sela.android.topbartype.domain.model.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UserUpdateRequest(
+data class UserModelResponse(
+    @SerialName(value = "id")
+    val id: Int,
     @SerialName(value = "fullname")
     val fullname: String,
     @SerialName(value = "email")
-    val email: String)
+    val email: String
+
+    )

@@ -1,7 +1,7 @@
 package kh.com.sela.android.topbartype.feature.notification
 
-import kh.com.sela.android.topbartype.model.NotificationResponse
-import kh.com.sela.android.topbartype.model.NotificationType
+import kh.com.sela.android.topbartype.domain.model.base.NotificationResponse
+import kh.com.sela.android.topbartype.domain.model.base.NotificationType
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

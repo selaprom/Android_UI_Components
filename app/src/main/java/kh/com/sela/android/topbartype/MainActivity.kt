@@ -80,6 +80,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import dagger.hilt.android.AndroidEntryPoint
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingContent
 import kh.com.sela.android.topbartype.Util.LoadingUtil
@@ -115,6 +116,8 @@ import kh.com.sela.android.topbartype.feature.tooltip.Screen_ToolTip
 /**
  * setup DI for android project
  */
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @OptIn(ExperimentalMaterial3Api::class)

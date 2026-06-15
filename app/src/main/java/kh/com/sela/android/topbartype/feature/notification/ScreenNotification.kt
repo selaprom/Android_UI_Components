@@ -17,12 +17,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Message
 import androidx.compose.material.icons.filled.Event
 import androidx.compose.material.icons.filled.LocalOffer
 import androidx.compose.material.icons.filled.Mail
-import androidx.compose.material.icons.filled.Message
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -46,8 +43,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.sela.android.topbartype.R
-import kh.com.sela.android.topbartype.model.NotificationResponse
-import kh.com.sela.android.topbartype.model.NotificationType
+import kh.com.sela.android.topbartype.domain.model.base.NotificationResponse
+import kh.com.sela.android.topbartype.domain.model.base.NotificationType
 import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 import java.text.SimpleDateFormat
 import java.util.Date

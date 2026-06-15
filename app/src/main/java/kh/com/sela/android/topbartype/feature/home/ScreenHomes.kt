@@ -29,7 +29,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
-import kh.com.sela.android.topbartype.model.base.BaseUiState
+import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
 import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

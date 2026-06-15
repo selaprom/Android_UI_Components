@@ -1,11 +1,11 @@
 package kh.com.sela.android.topbartype.network
 
 
-import kh.com.sela.android.topbartype.model.request.UserModelRequest
-import kh.com.sela.android.topbartype.model.request.UserUpdateRequest
-import kh.com.sela.android.topbartype.model.response.UserModelDeleteResponse
-import kh.com.sela.android.topbartype.model.response.UserModelResponse
-import kh.com.sela.android.topbartype.model.response.UserUpdateResponse
+import kh.com.sela.android.topbartype.domain.model.request.UserModelRequest
+import kh.com.sela.android.topbartype.domain.model.request.UserUpdateRequest
+import kh.com.sela.android.topbartype.domain.model.response.UserModelDeleteResponse
+import kh.com.sela.android.topbartype.domain.model.response.UserModelResponse
+import kh.com.sela.android.topbartype.domain.model.response.UserUpdateResponse
 import retrofit2.Response
 import retrofit2.http.*
 

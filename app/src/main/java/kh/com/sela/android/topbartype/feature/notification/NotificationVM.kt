@@ -1,14 +1,10 @@
 package kh.com.sela.android.topbartype.feature.notification
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
-import kh.com.sela.android.topbartype.model.NotificationResponse
-import kh.com.sela.android.topbartype.model.base.BaseUiState
-import kh.com.sela.android.topbartype.model.base.BaseUiState.Error
-import kh.com.sela.android.topbartype.navigation.NotificationDetail
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
+import kh.com.sela.android.topbartype.domain.model.base.NotificationResponse
+import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
+import kh.com.sela.android.topbartype.domain.model.base.BaseUiState.Error
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -32,7 +28,7 @@ private var _notificationList: MutableStateFlow<List<NotificationResponse>> = Mu
                     notificationDetailUiState.emit(BaseUiState.Success(response))
                 }
                 else{
-                    notificationDetailUiState.emit(BaseUiState.Error(code = 1000,message= "Notification Not found"))
+                    notificationDetailUiState.emit(Error(code = 1000,message= "Notification Not found"))
                 }
 
             }

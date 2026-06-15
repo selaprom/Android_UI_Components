@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.model.base
+package kh.com.sela.android.topbartype.domain.model.base
 
 sealed class BaseUiState<out T> {
     data object None: BaseUiState<Nothing>()

@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.model
+package kh.com.sela.android.topbartype.domain.model.base
 
 import androidx.annotation.DrawableRes
 

@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.model.response
+package kh.com.sela.android.topbartype.domain.model.response
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -2,12 +2,12 @@ package kh.com.sela.android.topbartype.feature.userapi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.sela.android.topbartype.model.base.BaseUiState
-import kh.com.sela.android.topbartype.model.request.UserModelRequest
-import kh.com.sela.android.topbartype.model.request.UserUpdateRequest
-import kh.com.sela.android.topbartype.model.response.UserModelDeleteResponse
-import kh.com.sela.android.topbartype.model.response.UserModelResponse
-import kh.com.sela.android.topbartype.model.response.UserUpdateResponse
+import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
+import kh.com.sela.android.topbartype.domain.model.request.UserModelRequest
+import kh.com.sela.android.topbartype.domain.model.request.UserUpdateRequest
+import kh.com.sela.android.topbartype.domain.model.response.UserModelDeleteResponse
+import kh.com.sela.android.topbartype.domain.model.response.UserModelResponse
+import kh.com.sela.android.topbartype.domain.model.response.UserUpdateResponse
 import kh.com.sela.android.topbartype.network.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

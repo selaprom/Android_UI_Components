@@ -1,6 +1,5 @@
 package kh.com.sela.android.topbartype.feature.card
 
-import TopAppBar
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -10,9 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -31,9 +27,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
-import kh.com.sela.android.topbartype.model.CardModel
-import kh.com.sela.android.topbartype.model.base.BaseUiState
-import kh.com.sela.android.topbartype.feature.appbar.CenterTopAppBar
+import kh.com.sela.android.topbartype.domain.model.base.CardModel
+import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
