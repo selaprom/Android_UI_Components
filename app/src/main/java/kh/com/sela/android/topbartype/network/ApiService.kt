@@ -12,13 +12,13 @@ import retrofit2.http.*
 
 interface ApiService {
     @GET("getusers")
-    suspend fun getUsers(): List<UserModelResponse>
+    suspend fun getUsers(): Response<List<UserModelResponse>>
 
     @POST("insert")
-    suspend fun createUser(@Body user: UserModelRequest): UserModelResponse
+    suspend fun createUser(@Body user: UserModelRequest): Response<UserModelResponse>
 
     @POST("deletuser/{id}")
-    suspend fun deleteUser(@Path("id") id: String, ): UserModelDeleteResponse
+    suspend fun deleteUser(@Path("id") id: String, ): Response<UserModelDeleteResponse>
 
     @PUT("updateuser/{id}")
     suspend fun updateUser(@Path("id") id: String, @Body user: UserUpdateRequest): Response<UserUpdateResponse>

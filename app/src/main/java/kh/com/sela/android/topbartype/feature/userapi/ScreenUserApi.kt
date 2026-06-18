@@ -116,10 +116,11 @@ fun ScreenUserApi(
 
     fun onEdite(){
         val body = UserUpdateRequest(
+            id = userId,
             fullname = name,
             email = email
         )
-        userVM.updateUser(userId.toString(),body)
+        userVM.updateUser(body)
         name = ""
         email = ""
     }

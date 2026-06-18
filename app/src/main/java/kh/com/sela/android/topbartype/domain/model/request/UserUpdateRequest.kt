@@ -5,6 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserUpdateRequest(
+    @SerialName(value = "id")
+    val id: Int? =null,
     @SerialName(value = "fullname")
     val fullname: String,
     @SerialName(value = "email")
