@@ -1,6 +1,6 @@
 package kh.com.sela.android.topbartype.feature.home
 
-import kh.com.sela.android.topbartype.domain.model.base.ComponentModel
+import kh.com.sela.android.topbartype.data.base.ComponentModel
 import kh.com.sela.android.topbartype.navigation.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

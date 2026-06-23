@@ -62,11 +62,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
+import kh.com.sela.android.topbartype.data.base.BaseUiState
 import androidx.compose.ui.text.style.TextAlign
-import kh.com.sela.android.topbartype.domain.model.request.UserModelRequest
-import kh.com.sela.android.topbartype.domain.model.request.UserUpdateRequest
-import kh.com.sela.android.topbartype.domain.model.response.UserModelResponse
+import kh.com.sela.android.topbartype.data.request.UserModelRequest
+import kh.com.sela.android.topbartype.data.request.UserUpdateRequest
+import kh.com.sela.android.topbartype.data.response.UserModelResponse
 
 
 @OptIn(ExperimentalMaterial3Api::class)

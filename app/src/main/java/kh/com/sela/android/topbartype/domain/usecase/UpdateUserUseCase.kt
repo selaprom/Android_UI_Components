@@ -1,15 +1,12 @@
 package kh.com.sela.android.topbartype.domain.usecase
 
 import kh.com.sela.android.topbartype.domain.BaseUseCase
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
-import kh.com.sela.android.topbartype.domain.model.request.UserModelRequest
-import kh.com.sela.android.topbartype.domain.model.request.UserUpdateRequest
-import kh.com.sela.android.topbartype.domain.model.response.UserModelResponse
-import kh.com.sela.android.topbartype.domain.model.response.UserUpdateResponse
+import kh.com.sela.android.topbartype.data.base.BaseUiState
+import kh.com.sela.android.topbartype.data.request.UserUpdateRequest
+import kh.com.sela.android.topbartype.data.response.UserUpdateResponse
 import kh.com.sela.android.topbartype.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import retrofit2.Response
 import javax.inject.Inject
 
 class UpdateUserUseCase @Inject constructor(

@@ -2,8 +2,8 @@ package kh.com.sela.android.topbartype.feature.card
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.sela.android.topbartype.domain.model.base.CardModel
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
+import kh.com.sela.android.topbartype.data.base.CardModel
+import kh.com.sela.android.topbartype.data.base.BaseUiState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -27,8 +27,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
-import kh.com.sela.android.topbartype.domain.model.base.CardModel
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
+import kh.com.sela.android.topbartype.data.base.CardModel
+import kh.com.sela.android.topbartype.data.base.BaseUiState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

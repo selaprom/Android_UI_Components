@@ -1,6 +1,6 @@
 package kh.com.sela.android.topbartype.feature.card
 
-import kh.com.sela.android.topbartype.domain.model.base.CardModel
+import kh.com.sela.android.topbartype.data.base.CardModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

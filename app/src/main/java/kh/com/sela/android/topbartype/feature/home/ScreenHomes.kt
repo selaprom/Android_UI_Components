@@ -1,7 +1,6 @@
 package kh.com.sela.android.topbartype.feature.home
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -29,7 +28,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.Util.LoadingUtil
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
+import kh.com.sela.android.topbartype.data.base.BaseUiState
 import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

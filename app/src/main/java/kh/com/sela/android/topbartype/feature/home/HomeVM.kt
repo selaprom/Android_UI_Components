@@ -2,9 +2,9 @@ package kh.com.sela.android.topbartype.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.sela.android.topbartype.domain.model.base.ComponentModel
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState.Success
+import kh.com.sela.android.topbartype.data.base.ComponentModel
+import kh.com.sela.android.topbartype.data.base.BaseUiState
+import kh.com.sela.android.topbartype.data.base.BaseUiState.Success
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

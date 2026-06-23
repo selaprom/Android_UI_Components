@@ -50,9 +50,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import kh.com.sela.android.topbartype.R.*
-import kh.com.sela.android.topbartype.domain.model.base.DashboardModel
-import kh.com.sela.android.topbartype.domain.model.base.NavigationBarItem
-import kh.com.sela.android.topbartype.domain.model.base.OtherServiceItemModel
+import kh.com.sela.android.topbartype.data.base.DashboardModel
+import kh.com.sela.android.topbartype.data.base.NavigationBarItem
+import kh.com.sela.android.topbartype.data.base.OtherServiceItemModel
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

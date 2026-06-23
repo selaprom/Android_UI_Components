@@ -2,9 +2,9 @@ package kh.com.sela.android.topbartype.feature.notification
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kh.com.sela.android.topbartype.domain.model.base.NotificationResponse
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState
-import kh.com.sela.android.topbartype.domain.model.base.BaseUiState.Error
+import kh.com.sela.android.topbartype.data.base.NotificationResponse
+import kh.com.sela.android.topbartype.data.base.BaseUiState
+import kh.com.sela.android.topbartype.data.base.BaseUiState.Error
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

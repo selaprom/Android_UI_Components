@@ -1,10 +1,10 @@
 package kh.com.sela.android.topbartype.di.imp
 
-import kh.com.sela.android.topbartype.domain.model.request.UserModelRequest
-import kh.com.sela.android.topbartype.domain.model.request.UserUpdateRequest
-import kh.com.sela.android.topbartype.domain.model.response.UserModelDeleteResponse
-import kh.com.sela.android.topbartype.domain.model.response.UserModelResponse
-import kh.com.sela.android.topbartype.domain.model.response.UserUpdateResponse
+import kh.com.sela.android.topbartype.data.request.UserModelRequest
+import kh.com.sela.android.topbartype.data.request.UserUpdateRequest
+import kh.com.sela.android.topbartype.data.response.UserModelDeleteResponse
+import kh.com.sela.android.topbartype.data.response.UserModelResponse
+import kh.com.sela.android.topbartype.data.response.UserUpdateResponse
 import kh.com.sela.android.topbartype.domain.repository.UserRepository
 import kh.com.sela.android.topbartype.network.ApiService
 import retrofit2.Response

@@ -43,8 +43,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kh.com.sela.android.topbartype.R
-import kh.com.sela.android.topbartype.domain.model.base.NotificationResponse
-import kh.com.sela.android.topbartype.domain.model.base.NotificationType
+import kh.com.sela.android.topbartype.data.base.NotificationResponse
+import kh.com.sela.android.topbartype.data.base.NotificationType
 import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 import java.text.SimpleDateFormat
 import java.util.Date
