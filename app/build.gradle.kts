@@ -70,11 +70,14 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.ui)
- //
+ //di
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
+//room database
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
 
 
     //jetpack compose navigation3
