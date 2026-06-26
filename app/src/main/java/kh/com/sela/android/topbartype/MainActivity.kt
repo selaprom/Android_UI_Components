@@ -162,4 +162,27 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Room Database Requirement
+ * 1.Create task management using
+ * -room database
+ * -dependency injection
+ * -viewmodel
+ * -compose
+ * -navigation
+ * -follow MVVM architecture
+ * 2.Get Task List
+ * 3.Create Task
+ * 4.Update Task
+ * 5.Delete Task
+ * 6.Get Task By Id
+ * 7.Get Task By Title
+ * 8.Filter Task By Status
+ * 9.Define Model
+ * -taskModel
+ * -taskName
+ * taskDescription
+ * taskCompleteYN
+ *
+ */
 
