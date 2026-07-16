@@ -36,6 +36,8 @@ class HomeRipository {
         ComponentModel(27, "SelectedMultipleVideos", "Selected Multiple Videos", "ic_carousel", SelectedMultipleVideos),
         ComponentModel(28, "SelectedVideosAndPhotos", "Selected Videos And Photos", "ic_carousel", SelectedVideosAndPhotos),
         ComponentModel(29, "CameraLauncher", "Camera Launcher", "ic_carousel", CameraLauncher),
+        ComponentModel(30, "RoomDatabase", "Room Database", "ic_carousel", RoomDatabase),
+        ComponentModel(31, "CreateTask", "Create Task", "ic_carousel", CreateTask),
         )
 
 

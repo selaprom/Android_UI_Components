@@ -6,7 +6,7 @@ import kh.com.sela.android.topbartype.data.response.UserModelDeleteResponse
 import kh.com.sela.android.topbartype.data.response.UserModelResponse
 import kh.com.sela.android.topbartype.data.response.UserUpdateResponse
 import kh.com.sela.android.topbartype.domain.repository.UserRepository
-import kh.com.sela.android.topbartype.network.ApiService
+import kh.com.sela.android.topbartype.di.remote.ApiService
 import retrofit2.Response
 import javax.inject.Inject
 

@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kh.com.sela.android.topbartype.network.ApiService
-import kh.com.sela.android.topbartype.network.RetrofitClient
+import kh.com.sela.android.topbartype.di.remote.ApiService
+import kh.com.sela.android.topbartype.di.remote.RetrofitClient
 import javax.inject.Singleton
 
 @Module

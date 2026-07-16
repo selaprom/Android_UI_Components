@@ -5,7 +5,9 @@ import isYes
 
 import kh.com.sela.android.topbartype.common.ValueYN
 import kh.com.sela.android.topbartype.di.local.entity.Task
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class TaskModel(
     val taskId: Long,
     val taskName: String,

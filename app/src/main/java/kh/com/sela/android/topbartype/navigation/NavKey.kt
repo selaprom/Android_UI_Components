@@ -1,5 +1,6 @@
 package kh.com.sela.android.topbartype.navigation
 
+import kh.com.sela.android.topbartype.domain.model.TaskModel
 import kotlinx.serialization.Serializable
 
 //Define key that will identify content
@@ -38,6 +39,10 @@ data object SelectedMultipleVideos
 data object SelectedVideosAndPhotos
 
 data object CameraLauncher
+data object RoomDatabase
+
+@Serializable
+data class CreateTask(val task: TaskModel?=null)
 
 @Serializable
 data class NotificationDetail(val id: String)

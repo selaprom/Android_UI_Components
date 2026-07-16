@@ -34,6 +34,8 @@ import kh.com.sela.android.topbartype.feature.notification.ScreenNotificationDet
 import kh.com.sela.android.topbartype.feature.postnotification.ScreenPostNotification
 import kh.com.sela.android.topbartype.feature.progressindicator.ScreenCicleProgressIndecator
 import kh.com.sela.android.topbartype.feature.radiobutton.Screen_RadioButton
+import kh.com.sela.android.topbartype.feature.roomdatabase.ScreenCreateTask
+import kh.com.sela.android.topbartype.feature.roomdatabase.ScreenRoomDatabase
 import kh.com.sela.android.topbartype.feature.slider.Screen_Slider
 import kh.com.sela.android.topbartype.feature.snackbar.Screen_SnackBar
 import kh.com.sela.android.topbartype.feature.switch.Screen_Switch
@@ -198,6 +200,26 @@ fun AppNavigation() {
                 }
                 is CameraLauncher -> NavEntry(key) {
                     ScreenCameraLauncher (){
+                        backStack.removeLastOrNull()
+                    }
+                }
+                is RoomDatabase -> NavEntry(key) {
+                    ScreenRoomDatabase (onBackClick = {backStack.removeLastOrNull()}, onCreateTask = {
+                        backStack.add(CreateTask())
+                    },onEditTask={task->
+                        backStack.add(CreateTask(task))
+
+
+                    }
+
+                    )
+
+
+                }
+                is CreateTask -> NavEntry(key) {
+                    ScreenCreateTask(
+                        key.task
+                    ) {
                         backStack.removeLastOrNull()
                     }
                 }

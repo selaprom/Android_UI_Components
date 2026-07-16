@@ -6,13 +6,19 @@ import kh.com.sela.android.topbartype.di.local.entity.toTaskModelList
 import kh.com.sela.android.topbartype.domain.model.TaskModel
 import kh.com.sela.android.topbartype.domain.model.toTask
 import kh.com.sela.android.topbartype.domain.repository.TaskRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class TaskRepositoryImpl @Inject constructor(
     private val taskDao: TaskDao
 ): TaskRepository {
-    override suspend fun getTasks(): List<TaskModel> {
-        return taskDao.getTaskLists().toTaskModelList()
+    override  fun getTasks(): Flow<List<TaskModel>> {
+        return flow {
+            taskDao.getTaskLists().collect {
+                emit(it.toTaskModelList())
+            }
+        }
     }
 
     override suspend fun createTask(task: TaskModel): TaskModel {
@@ -25,8 +31,8 @@ class TaskRepositoryImpl @Inject constructor(
         return task
     }
 
-    override suspend fun deleteTask(taskId: String): TaskModel {
-        val task = taskDao.getTaskById(taskId) ?: throw Exception("Task not found")
+    override suspend fun deleteTask(taskId: Long): TaskModel {
+        val task = taskDao.getTaskById(taskId.toString()) ?: throw Exception("Task not found")
         taskDao.deleteTask(taskId)
         return task.toTaskModel()
     }

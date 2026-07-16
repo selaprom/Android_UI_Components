@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.network
+package kh.com.sela.android.topbartype.di.remote
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi

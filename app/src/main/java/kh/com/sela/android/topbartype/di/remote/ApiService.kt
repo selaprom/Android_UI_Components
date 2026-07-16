@@ -1,4 +1,4 @@
-package kh.com.sela.android.topbartype.network
+package kh.com.sela.android.topbartype.di.remote
 
 
 import kh.com.sela.android.topbartype.data.request.UserModelRequest
