@@ -95,4 +95,6 @@ dependencies {
     implementation(libs.retrofit2.kotlinx.serialization.converter)
     implementation(libs.logging.interceptor)
     implementation(libs.kotlinx.coroutines.android)
+    //add core module
+    implementation(project(":core"))
 }
