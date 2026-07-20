@@ -22,3 +22,6 @@ dependencyResolutionManagement {
 rootProject.name = "TopBarType"
 include(":app")
 include(":core")
+include(":core:model")
+
+

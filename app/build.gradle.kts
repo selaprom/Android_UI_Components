@@ -97,4 +97,5 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     //add core module
     implementation(project(":core"))
+    implementation(project(":core:model"))
 }
