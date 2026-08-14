@@ -12,6 +12,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,7 +37,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,6 +49,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kh.com.sela.android.topbartype.R
 import kh.com.sela.android.topbartype.navigation.TopAppBar
+import kh.com.sela.android.topbartype.service.firebase.NotificationUtil
 import kh.com.sela.android.topbartype.ui.theme.TopBarTypeTheme
 
 
@@ -64,6 +69,8 @@ fun ScreenPostNotification(
     var message by remember { mutableStateOf("") }
 
     val isEnable = title.isNotBlank() && message.isNotBlank()
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     val context = LocalContext.current
     val notificationPermissionLauncher = rememberLauncherForActivityResult(
@@ -92,7 +99,14 @@ fun ScreenPostNotification(
     }
 
     Scaffold(
-        modifier = Modifier.systemBarsPadding(),
+        modifier = Modifier
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = {
+                    focusManager.clearFocus()
+                    keyboardController?.hide()
+                })
+            }
+            .systemBarsPadding(),
         topBar = {
             TopAppBar(
                 title = { Text("Post Notification") },
@@ -132,7 +146,7 @@ fun ScreenPostNotification(
                         Toast.makeText(context, "Permission Denied", Toast.LENGTH_SHORT).show()
                         return@FilledTonalButton
                     }
-                    sendNotification(context, title, message)
+                    NotificationUtil.sendNotification(context, title, message)
                     title = ""
                     message = ""
                 },

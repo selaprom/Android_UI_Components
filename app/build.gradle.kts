@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.commonizer.OptimisticNumberCommonizationEnabledKey.alias
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,6 +5,10 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.com.google.gms.google.services)
+
+
+
 }
 
 android {
@@ -80,6 +82,17 @@ dependencies {
 //room database
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
+
+    //Firebase push notification
+
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.messaging)
+
+
+
+
 
 
     //jetpack compose navigation3

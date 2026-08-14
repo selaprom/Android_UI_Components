@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.navigation3.runtime.NavEntry
@@ -48,9 +49,24 @@ import kotlinx.serialization.Serializable
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun AppNavigation() {
-
+fun AppNavigation(route: String?=null) {
     val backStack = remember { mutableStateListOf<Any>(Homes) }
+    LaunchedEffect(route) {
+        when (route) {
+            "room-db"->{
+                backStack.add(RoomDatabase)
+            }
+
+            "notification-detail"->{
+            backStack.add(NotificationDetail)
+        }
+            "user-api"->{
+                backStack.add(UserApi)}
+        }
+
+    }
+
+
 
     NavDisplay(
         backStack = backStack,

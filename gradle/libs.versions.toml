@@ -1,6 +1,7 @@
 [versions]
 
 agp = "8.9.1"
+firebaseBom = "34.17.0"
 kotlin = "2.1.21"
 ksp   = "2.1.21-2.0.1"
 room = "2.8.4"
@@ -39,6 +40,7 @@ foundationLayout = "1.11.4"
 composeMaterial = "1.6.2"
 appcompat = "1.7.1"
 material = "1.14.0"
+gms = "4.4.3"
 
 [libraries]
 androidx-compose-material-icons-core = { module = "androidx.compose.material:material-icons-core", version.ref = "materialIconsCore" }
@@ -50,6 +52,9 @@ androidx-media3-exoplayer = { module = "androidx.media3:media3-exoplayer", versi
 androidx-media3-ui = { module = "androidx.media3:media3-ui", version.ref = "media3Exoplayer" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -104,10 +109,13 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version = "2.1.21-2.0.1" }
 
+#Firebase push notification
+
+com-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "gms" }
+
 
 #optional plugin
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization"}
 android-library = { id = "com.android.library", version.ref = "agp" }
-
 
 
