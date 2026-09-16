@@ -41,8 +41,17 @@ data object SelectedVideosAndPhotos
 data object CameraLauncher
 data object RoomDatabase
 
+data object GetLocation
+
+data object AndroidXCamera
+
+data object CameraAndroidPreview
+
 @Serializable
 data class CreateTask(val task: TaskModel?=null)
 
 @Serializable
 data class NotificationDetail(val id: String)
+
+@Serializable
+data class PreviewImage(val imageUri: String)

@@ -7,8 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import androidx.core.net.toUri
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
+import kh.com.sela.android.topbartype.feature.androidXCamera.ScreenAndroidXCamera
+import kh.com.sela.android.topbartype.feature.androidXCamera.ScreenCameraView
+import kh.com.sela.android.topbartype.feature.androidXCamera.ScreenPreviewImage
 import kh.com.sela.android.topbartype.feature.appbar.Screen_BottomBar
 import kh.com.sela.android.topbartype.feature.appbar.Screen_BottomBarWithFloating
 import kh.com.sela.android.topbartype.feature.appbar.Screen_TopAppBar
@@ -23,6 +27,7 @@ import kh.com.sela.android.topbartype.feature.datepicker.DatePickers
 import kh.com.sela.android.topbartype.feature.dialog.ScreenDialog
 import kh.com.sela.android.topbartype.feature.drawer.ScreenNavigationDrawer
 import kh.com.sela.android.topbartype.feature.home.ScreenHomes
+import kh.com.sela.android.topbartype.feature.location.ScreenLocation
 import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedMultiplePhotos
 import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedMultipleVideos
 import kh.com.sela.android.topbartype.feature.mediapicker.ScreenSelectedSinglePhoto
@@ -49,19 +54,21 @@ import kotlinx.serialization.Serializable
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun AppNavigation(route: String?=null) {
+fun AppNavigation(route: String? = null) {
     val backStack = remember { mutableStateListOf<Any>(Homes) }
     LaunchedEffect(route) {
         when (route) {
-            "room-db"->{
+            "room-db" -> {
                 backStack.add(RoomDatabase)
             }
 
-            "notification-detail"->{
-            backStack.add(NotificationDetail)
-        }
-            "user-api"->{
-                backStack.add(UserApi)}
+            "notification-detail" -> {
+                backStack.add(NotificationDetail)
+            }
+
+            "user-api" -> {
+                backStack.add(UserApi)
+            }
         }
 
     }
@@ -99,11 +106,11 @@ fun AppNavigation(route: String?=null) {
                 }
 
                 is Tab -> NavEntry(key) {
-                    Screen_Tab (){}
+                    Screen_Tab() {}
                 }
 
                 is NavigationBar -> NavEntry(key) {
-                    ScreenBottomNavigationBar (){}
+                    ScreenBottomNavigationBar() {}
                 }
 
                 is BottomBarWithFloating -> NavEntry(key) {
@@ -111,19 +118,19 @@ fun AppNavigation(route: String?=null) {
                 }
 
                 is BottomSheet -> NavEntry(key) {
-                    Screen_BottomSheet (){}
+                    Screen_BottomSheet() {}
                 }
 
                 is ToolTip -> NavEntry(key) {
-                    Screen_ToolTip ()
+                    Screen_ToolTip()
                 }
 
                 is NavigationDrawer -> NavEntry(key) {
-                    ScreenNavigationDrawer ()
+                    ScreenNavigationDrawer()
                 }
 
                 is TextField -> NavEntry(key) {
-                    Screen_TextField ()
+                    Screen_TextField()
                 }
 
                 is BottomBar -> NavEntry(key) {
@@ -131,11 +138,11 @@ fun AppNavigation(route: String?=null) {
                 }
 
                 is Dialog -> NavEntry(key) {
-                    ScreenDialog ()
+                    ScreenDialog()
                 }
 
                 is SnackBar -> NavEntry(key) {
-                    Screen_SnackBar ()
+                    Screen_SnackBar()
                 }
 
                 is ProgressIndicator -> NavEntry(key) {
@@ -143,101 +150,144 @@ fun AppNavigation(route: String?=null) {
                 }
 
                 is RadioButton -> NavEntry(key) {
-                    Screen_RadioButton ()
+                    Screen_RadioButton()
                 }
 
                 is Slider -> NavEntry(key) {
-                    Screen_Slider ()
+                    Screen_Slider()
                 }
 
                 is Switch -> NavEntry(key) {
-                    Screen_Switch ()
+                    Screen_Switch()
                 }
 
                 is Menu -> NavEntry(key) {
-                    ScreenMenu ()
+                    ScreenMenu()
                 }
 
                 is Chip -> NavEntry(key) {
-                    ChipView ()
+                    ChipView()
                 }
 
                 is Button -> NavEntry(key) {
-                    HomeButton ()
+                    HomeButton()
                 }
 
                 is DatePicker -> NavEntry(key) {
-                    DatePickers ()
+                    DatePickers()
                 }
 
                 is Carousel -> NavEntry(key) {
-                    HorizontalMultiBrowseCarousels ()
+                    HorizontalMultiBrowseCarousels()
                 }
 
                 is CheckBox -> NavEntry(key) {
-                    PreViewCheckBox ()
+                    PreViewCheckBox()
                 }
 
                 is TopAppBar -> NavEntry(key) {
                     Screen_TopAppBar { backStack.removeLastOrNull() }
                 }
+
                 is UserApi -> NavEntry(key) {
-                    ScreenUserApi ()
+                    ScreenUserApi()
                 }
+
                 is PostNotification -> NavEntry(key) {
-                    ScreenPostNotification (){
+                    ScreenPostNotification() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is SelectedSinglePhoto -> NavEntry(key) {
-                    ScreenSelectedSinglePhoto (){
+                    ScreenSelectedSinglePhoto() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is SelectedMultiplePhotos -> NavEntry(key) {
-                    ScreenSelectedMultiplePhotos (){
+                    ScreenSelectedMultiplePhotos() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is SelectedSingleVideo -> NavEntry(key) {
-                    ScreenSelectedSingleVideo (){
+                    ScreenSelectedSingleVideo() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is SelectedMultipleVideos -> NavEntry(key) {
-                    ScreenSelectedMultipleVideos (){
+                    ScreenSelectedMultipleVideos() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is SelectedVideosAndPhotos -> NavEntry(key) {
-                    ScreenSelectedVideosAndPhotos(){
+                    ScreenSelectedVideosAndPhotos() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is CameraLauncher -> NavEntry(key) {
-                    ScreenCameraLauncher (){
+                    ScreenCameraLauncher() {
                         backStack.removeLastOrNull()
                     }
                 }
+
                 is RoomDatabase -> NavEntry(key) {
-                    ScreenRoomDatabase (onBackClick = {backStack.removeLastOrNull()}, onCreateTask = {
-                        backStack.add(CreateTask())
-                    },onEditTask={task->
-                        backStack.add(CreateTask(task))
+                    ScreenRoomDatabase(
+                        onBackClick = { backStack.removeLastOrNull() },
+                        onCreateTask = {
+                            backStack.add(CreateTask())
+                        },
+                        onEditTask = { task ->
+                            backStack.add(CreateTask(task))
 
 
-                    }
+                        }
 
                     )
 
 
                 }
+
                 is CreateTask -> NavEntry(key) {
                     ScreenCreateTask(
                         key.task
                     ) {
                         backStack.removeLastOrNull()
                     }
+                }
+
+                is GetLocation -> NavEntry(key) {
+                    ScreenLocation {
+                        backStack.removeLastOrNull()
+                    }
+                }
+
+                is AndroidXCamera -> NavEntry(key) {
+                    ScreenAndroidXCamera(onBackClick = {
+
+                    }, onOpenCamera = {
+                        backStack.add(CameraAndroidPreview)
+
+                    })
+                }
+                is CameraAndroidPreview -> NavEntry(key) {
+                    ScreenCameraView(
+                        onClose = { backStack.removeLastOrNull() },
+                        onImageCaptured = {
+                            backStack.add(PreviewImage(it.toString()))
+
+                        }
+                    )
+                }
+                is PreviewImage -> NavEntry(key) {
+                    ScreenPreviewImage(
+                        onBack = { backStack.removeLastOrNull() },
+                        imageUri = key.imageUri.toUri()
+                    )
                 }
 
                 else -> NavEntry(Unit) { Text("Unknown route") }

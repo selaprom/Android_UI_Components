@@ -38,6 +38,8 @@ class HomeRipository {
         ComponentModel(29, "CameraLauncher", "Camera Launcher", "ic_carousel", CameraLauncher),
         ComponentModel(30, "RoomDatabase", "Room Database", "ic_carousel", RoomDatabase),
         ComponentModel(31, "CreateTask", "Create Task", "ic_carousel", CreateTask),
+        ComponentModel(32, "GetLocation", "Get Location", "ic_carousel", GetLocation),
+        ComponentModel(33, "AndroidXCamera", "AndroidX Camera", "ic_carousel", AndroidXCamera),
         )
 
 
