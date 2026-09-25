@@ -40,6 +40,8 @@ class HomeRipository {
         ComponentModel(31, "CreateTask", "Create Task", "ic_carousel", CreateTask),
         ComponentModel(32, "GetLocation", "Get Location", "ic_carousel", GetLocation),
         ComponentModel(33, "AndroidXCamera", "AndroidX Camera", "ic_carousel", AndroidXCamera),
+        ComponentModel(34, "InternetStateChange", "Internet State Change", "ic_carousel", InternetStateChange),
+        ComponentModel(35, "DeviceScreenInformation", "Device Screen Information", "ic_carousel", DeviceScreenInformation),
         )
 
 

@@ -39,7 +39,7 @@ fun ScreenAndroidXCamera(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 ),
                 title = {
-                    Text("Location")
+                    Text("AndroidX Camera")
                 },
                 navigationIcon = {
                     IconButton(onClick = {

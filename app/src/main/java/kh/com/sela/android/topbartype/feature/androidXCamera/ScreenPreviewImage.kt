@@ -1,5 +1,6 @@
 package kh.com.sela.android.topbartype.feature.androidXCamera
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,17 +26,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import kh.com.pheaktra.developer.basic.jetpack.compse.weekend.utils.extension.shareImageUri
 import kh.com.sela.android.topbartype.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenPreviewImage(
     onBack: () -> Unit = {},
-    imageUri:Any
-){
+    imageUri: Any
+) {
+    val context = LocalContext.current
     Scaffold(
         modifier = Modifier.systemBarsPadding(),
         topBar = {
@@ -74,7 +78,10 @@ fun ScreenPreviewImage(
                         .height(48.dp)
                         .fillMaxWidth(),
                     onClick = {
-
+                        context.shareImageUri(
+                            imageUri = imageUri as Uri,
+                            chooserTitle = "this an image that capture from androidx camera"
+                        )
                     },
 
 
@@ -107,11 +114,8 @@ fun ScreenPreviewImage(
                     modifier = Modifier
                         .clip(shape = RoundedCornerShape(16.dp))
                         .fillMaxWidth()
-                        .wrapContentHeight()
-                    ,
-                    model = imageUri
-
-                    ,
+                        .wrapContentHeight(),
+                    model = imageUri,
                     contentDescription = "Selected Image",
 
                     contentScale = ContentScale.Crop

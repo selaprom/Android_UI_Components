@@ -4,3 +4,6 @@ enum class ValueYN(val value: String) {
     YES("Y"),
     NO("N");
 }
+enum class ConnectionState {
+    Available, Unavailable
+}

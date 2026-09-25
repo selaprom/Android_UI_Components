@@ -47,6 +47,9 @@ data object AndroidXCamera
 
 data object CameraAndroidPreview
 
+data object InternetStateChange
+
+data object DeviceScreenInformation
 @Serializable
 data class CreateTask(val task: TaskModel?=null)
 
