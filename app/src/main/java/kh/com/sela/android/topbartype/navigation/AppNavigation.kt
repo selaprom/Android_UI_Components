@@ -31,6 +31,7 @@ import kh.com.sela.android.topbartype.feature.chip.ChipView
 import kh.com.sela.android.topbartype.feature.datepicker.DatePickers
 import kh.com.sela.android.topbartype.feature.dialog.ScreenDialog
 import kh.com.sela.android.topbartype.feature.drawer.ScreenNavigationDrawer
+import kh.com.sela.android.topbartype.feature.fingerprint.ScreenBiometric
 import kh.com.sela.android.topbartype.feature.home.ScreenHomes
 import kh.com.sela.android.topbartype.feature.internetstatechange.ScreenInternetStateChange
 import kh.com.sela.android.topbartype.feature.location.ScreenLocation
@@ -179,6 +180,11 @@ fun AppNavigation(route: String? = null) {
             }
             entry<DeviceScreenInformation> {
                 ScreenDeviceScreenInformation (){
+                    backStack.removeLastOrNull()
+                }
+            }
+            entry<Biometric> {
+                ScreenBiometric {
                     backStack.removeLastOrNull()
                 }
             }

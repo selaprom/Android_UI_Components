@@ -50,6 +50,9 @@ data object CameraAndroidPreview
 data object InternetStateChange
 
 data object DeviceScreenInformation
+
+
+data object Biometric
 @Serializable
 data class CreateTask(val task: TaskModel?=null)
 

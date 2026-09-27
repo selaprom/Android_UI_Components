@@ -102,7 +102,11 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
 
+    //finger print sensor
+    implementation(libs.androidx.biometric)
 
+    //appcompact
+    implementation(libs.androidx.appcompat.v180)
 
     //jetpack compose navigation3
     implementation(libs.androidx.navigation3.runtime)

@@ -42,6 +42,7 @@ class HomeRipository {
         ComponentModel(33, "AndroidXCamera", "AndroidX Camera", "ic_carousel", AndroidXCamera),
         ComponentModel(34, "InternetStateChange", "Internet State Change", "ic_carousel", InternetStateChange),
         ComponentModel(35, "DeviceScreenInformation", "Device Screen Information", "ic_carousel", DeviceScreenInformation),
+        ComponentModel(36, "ScreenBiometric", "Finger Print Sensor", "ic_carousel", Biometric,),
         )
 
 

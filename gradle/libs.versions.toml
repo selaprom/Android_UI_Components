@@ -4,6 +4,8 @@
 accompanistPermissions = "0.34.0"
 accompanistPermissionsVersion = "0.37.3"
 agp = "8.9.1"
+appcompatVersion = "1.8.0"
+biometric = "1.4.0-alpha07"
 cameraxVersion = "1.5.0"
 firebaseBom = "34.17.0"
 kotlin = "2.1.21"
@@ -50,6 +52,8 @@ gms = "4.4.3"
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
 accompanist-permissions-v0373 = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissionsVersion" }
+androidx-appcompat-v180 = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
+androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
 androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "cameraxVersion" }
 androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "cameraxVersion" }
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "cameraxVersion" }
